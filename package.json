@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"@nikolarhristov/pipeline": "0.1.0",
-		"@rometools/backend-jsonrpc": "10.0.1",
+		"@rometools/backend-jsonrpc": "11.0.0",
 		"@rometools/js-api": "0.1.3",
 		"@rometools/wasm-nodejs": "11.0.0",
 		"deepmerge-ts": "4.2.2",
