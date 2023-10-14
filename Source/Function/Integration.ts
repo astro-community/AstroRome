@@ -20,7 +20,7 @@ export default (_Option: Option = {}): AstroIntegration => {
 	const Paths = new Set<Path>();
 
 	if (typeof Path !== "undefined") {
-		if (Path instanceof Array || Path instanceof Set) {
+		if (Array.isArray(Path) || Path instanceof Set) {
 			for (const _Path of Path) {
 				Paths.add(_Path);
 			}
@@ -61,7 +61,7 @@ export default (_Option: Option = {}): AstroIntegration => {
 					_Rome.applyConfiguration(Rome);
 				}
 
-				Paths.forEach(async (Path) => {
+				for (const Path of Paths) {
 					await (
 						await (
 							await (
@@ -72,7 +72,7 @@ export default (_Option: Option = {}): AstroIntegration => {
 							).By("**/*.{js,mjs,cjs,ts}")
 						).Not(Exclude)
 					).Pipe(_Action);
-				});
+				}
 			},
 		},
 	};
