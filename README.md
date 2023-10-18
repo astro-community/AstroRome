@@ -50,7 +50,7 @@ pnpx astro add astro-rome
 
 First, install the `AstroRome` integration like so:
 
-```
+```sh
 npm install -D -E astro-rome
 ```
 
