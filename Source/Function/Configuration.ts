@@ -1,8 +1,12 @@
-export default async (_File: string) => {
+/**
+ * @module Configuration
+ *
+ */
+export default (async (...[File]: Parameters<Type>) => {
 	try {
 		return (
 			await readFile(
-				resolve(`${(await import("process")).cwd()}/${_File}`),
+				resolve(`${(await import("process")).cwd()}/${File}`),
 				"utf-8"
 			)
 		).toString();
@@ -12,13 +16,15 @@ export default async (_File: string) => {
 				resolve(
 					`${(await import("path")).dirname(
 						(await import("url")).fileURLToPath(import.meta.url)
-					)}/../Notation/${_File}`
+					)}/../Notation/${File}`
 				),
 				"utf-8"
 			)
 		).toString();
 	}
-};
+}) satisfies Type as Type;
+
+import type Type from "../Interface/Configuration.js";
 
 export const { readFile } = await import("fs/promises");
 
