@@ -11,9 +11,9 @@ declare const _default: Omit<{} & {
     Exclude: false;
     Files: string;
     Action: Omit<{} & {
-        Failed: (On: import("files-pipe/Target/Interface/File.js").default) => Promise<string>;
-        Accomplished: (On: import("files-pipe/Target/Interface/File.js").default) => Promise<string>;
-        Fulfilled: (Plan: import("files-pipe/Target/Interface/Plan.js").default) => Promise<string | false>;
+        Failed: ({ Input }: import("files-pipe/Target/Interface/File.js").default) => Promise<string>;
+        Accomplished: ({ Input, Output }: import("files-pipe/Target/Interface/File.js").default) => Promise<string>;
+        Fulfilled: ({ Files }: import("files-pipe/Target/Interface/Plan.js").default) => Promise<string | false>;
         Read: ({ Input }: import("files-pipe/Target/Interface/File.js").default) => Promise<string>;
         Wrote: ({ Buffer }: import("files-pipe/Target/Interface/File.js").default) => Promise<import("files-pipe/Target/Type/Buffer.js").Type>;
         Passed: (On: import("files-pipe/Target/Interface/File.js").default) => Promise<true>;
