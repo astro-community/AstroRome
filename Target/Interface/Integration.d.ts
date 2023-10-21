@@ -2,7 +2,7 @@
  * @module Integration
  *
  */
-export default interface Integration {
+export default interface Type {
     (Option: Option): AstroIntegration;
 }
 import type { AstroIntegration } from "astro";
