@@ -3,7 +3,6 @@
  *
  */
 export default interface Type extends Option {
-    [key: string]: any;
     Rome?: boolean | Rome;
 }
 import type Rome from "./Rome.js";
