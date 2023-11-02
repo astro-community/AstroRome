@@ -43,7 +43,7 @@
 		"typescript-esbuild": "0.3.1"
 	},
 	"devDependencies": {
-		"astro": "3.4.0",
+		"astro": "3.4.2",
 		"esbuild-plugin-copy": "2.1.1"
 	},
 	"publishConfig": {
