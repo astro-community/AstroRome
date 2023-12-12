@@ -12,7 +12,7 @@ export default (
 			`Formatted ${Input} in ${Output}.`,
 		Fulfilled: async ({ Files }) =>
 			Files > 0
-				? `Successfully formatted a total of ${Files} JS and TS ${
+				? `Successfully formatted a total of ${Files} JavaScript and TypeScript ${
 						Files === 1 ? "file" : "files"
 				  }.`
 				: false,
