@@ -19,9 +19,9 @@ export default {
 						outdir
 							? await (
 									await import("fs/promises")
-							  ).rm(outdir, {
+								).rm(outdir, {
 									recursive: true,
-							  })
+								})
 							: {};
 					} catch (_Error) {}
 				});
