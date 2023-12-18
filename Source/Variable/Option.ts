@@ -14,7 +14,7 @@ export default (
 			Files > 0
 				? `Successfully formatted a total of ${Files} JavaScript and TypeScript ${
 						Files === 1 ? "file" : "files"
-				  }.`
+					}.`
 				: false,
 	},
 } satisfies Type);

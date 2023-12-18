@@ -19,18 +19,18 @@ var l = (...[e = {}]) => {
 		hooks: {
 			"astro:build:done": async ({ dir: t }) => {
 				r.size || r.add(t);
-				const n = await (await import("@rometools/js-api")).Rome.create(
-						{
-							distribution: (await import("@rometools/js-api"))
-								.Distribution.NODE,
-						},
-					),
+				const n = await (
+						await import("@rometools/js-api")
+					).Rome.create({
+						distribution: (await import("@rometools/js-api"))
+							.Distribution.NODE,
+					}),
 					u = f(y, {
 						Wrote: async (a) => {
 							try {
 								return n.formatContent(a.Buffer.toString(), {
 									filePath: (await import("path")).resolve(
-										a.Input,
+										a.Input
 									),
 								}).content;
 							} catch {
@@ -45,9 +45,10 @@ var l = (...[e = {}]) => {
 					await (
 						await (
 							await (
-								await new (
-									await import("files-pipe")
-								).default(p, c).In(a)
+								await new (await import("files-pipe")).default(
+									p,
+									c
+								).In(a)
 							).By("**/*.{js,mjs,cjs,ts}")
 						).Not(m)
 					).Pipe(u);

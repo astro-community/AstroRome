@@ -7,13 +7,11 @@ var e = async (...[t]) => {
 		return (
 			await r(
 				a(
-					`${(
-						await import("path")
-					).dirname(
-						(await import("url")).fileURLToPath(import.meta.url),
-					)}/../Notation/${t}`,
+					`${(await import("path")).dirname(
+						(await import("url")).fileURLToPath(import.meta.url)
+					)}/../Notation/${t}`
 				),
-				"utf-8",
+				"utf-8"
 			)
 		).toString();
 	}

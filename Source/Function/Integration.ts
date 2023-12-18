@@ -2,7 +2,7 @@
  * @module Integration
  *
  */
-export default (((...[_Option = {}]: Parameters<Type>) => {
+export default ((...[_Option = {}]: Parameters<Type>) => {
 	for (const Option in _Option) {
 		if (
 			Object.prototype.hasOwnProperty.call(_Option, Option) &&
@@ -14,7 +14,7 @@ export default (((...[_Option = {}]: Parameters<Type>) => {
 
 	const { Path, Cache, Logger, Exclude, Action, Rome } = Merge(
 		Default,
-		_Option,
+		_Option
 	);
 
 	const Paths = new Set<Path>();
@@ -47,7 +47,7 @@ export default (((...[_Option = {}]: Parameters<Type>) => {
 						try {
 							return _Rome.formatContent(On.Buffer.toString(), {
 								filePath: (await import("path")).resolve(
-									On.Input,
+									On.Input
 								),
 							}).content;
 						} catch (_Error) {
@@ -65,9 +65,10 @@ export default (((...[_Option = {}]: Parameters<Type>) => {
 					await (
 						await (
 							await (
-								await new (
-									await import("files-pipe")
-								).default(Cache, Logger).In(Path)
+								await new (await import("files-pipe")).default(
+									Cache,
+									Logger
+								).In(Path)
 							).By("**/*.{js,mjs,cjs,ts}")
 						).Not(Exclude)
 					).Pipe(_Action);
@@ -75,7 +76,7 @@ export default (((...[_Option = {}]: Parameters<Type>) => {
 			},
 		},
 	};
-}) satisfies Type as Type);
+}) satisfies Type as Type;
 
 import type Type from "../Interface/Integration.js";
 
