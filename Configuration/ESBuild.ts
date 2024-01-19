@@ -1,6 +1,6 @@
 import type { BuildOptions } from "esbuild";
 
-export default {
+export default ({
 	color: true,
 	format: "esm",
 	metafile: true,
@@ -17,11 +17,9 @@ export default {
 				onStart(async () => {
 					try {
 						outdir
-							? await (
-									await import("fs/promises")
-								).rm(outdir, {
+							? await (await import("fs/promises")).rm(outdir, {
 									recursive: true,
-								})
+							  })
 							: {};
 					} catch (_Error) {}
 				});
@@ -39,10 +37,12 @@ export default {
 		}),
 	],
 	define: {
-		"process.env.VERSION_PACKAGE": `'${(
-			await (
-				await import("typescript-esbuild/Target/Function/JSON.js")
-			).default("package.json")
-		)?.version}'`,
+		"process.env.VERSION_PACKAGE": `'${
+			(
+				await (
+					await import("typescript-esbuild/Target/Function/JSON.js")
+				).default("package.json")
+			)?.version
+		}'`,
 	},
-} satisfies BuildOptions as BuildOptions;
+} satisfies BuildOptions as BuildOptions);
