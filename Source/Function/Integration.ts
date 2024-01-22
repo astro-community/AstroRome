@@ -56,10 +56,14 @@ export default ((...[_Option = {}]: Parameters<Type>) => {
 					},
 				} satisfies Action);
 
-				if (typeof Rome === "object" && _Rome) {
-					// @ts-ignore
-					Rome["$schema"] = undefined;
-					_Rome.applyConfiguration(Rome);
+				try {
+					if (typeof Rome === "object" && _Rome) {
+						// @ts-ignore
+						Rome["$schema"] = undefined;
+						_Rome.applyConfiguration(Rome);
+					}
+				} catch (_Error) {
+					console.log(_Error);
 				}
 
 				for (const Path of Paths) {
