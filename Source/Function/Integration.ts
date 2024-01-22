@@ -2,19 +2,19 @@
  * @module Integration
  *
  */
-export default (((...[_Option = {}]: Parameters<Type>) => {
-	for (const Option in _Option) {
-		if (
-			Object.prototype.hasOwnProperty.call(_Option, Option) &&
-			_Option[Option] === true
-		) {
-			_Option[Option] = Default[Option as keyof typeof Default];
-		}
-	}
+export default ((...[_Option = {}]: Parameters<Type>) => {
+	Object.entries(_Option).forEach(([Key, Value]) =>
+		Object.defineProperty(_Option, Key, {
+			value:
+				Value === true
+					? Default[Key as keyof typeof Default]
+					: _Option[Key as keyof typeof _Option],
+		})
+	);
 
 	const { Path, Cache, Logger, Exclude, Action, Rome } = Merge(
 		Default,
-		_Option,
+		_Option
 	);
 
 	const Paths = new Set<Path>();
@@ -47,7 +47,7 @@ export default (((...[_Option = {}]: Parameters<Type>) => {
 						try {
 							return _Rome.formatContent(On.Buffer.toString(), {
 								filePath: (await import("path")).resolve(
-									On.Input,
+									On.Input
 								),
 							}).content;
 						} catch (_Error) {
@@ -57,6 +57,7 @@ export default (((...[_Option = {}]: Parameters<Type>) => {
 				} satisfies Action);
 
 				if (typeof Rome === "object" && _Rome) {
+					// @ts-ignore
 					Rome["$schema"] = undefined;
 					_Rome.applyConfiguration(Rome);
 				}
@@ -65,9 +66,10 @@ export default (((...[_Option = {}]: Parameters<Type>) => {
 					await (
 						await (
 							await (
-								await new (
-									await import("files-pipe")
-								).default(Cache, Logger).In(Path)
+								await new (await import("files-pipe")).default(
+									Cache,
+									Logger
+								).In(Path)
 							).By("**/*.{js,mjs,cjs,ts}")
 						).Not(Exclude)
 					).Pipe(_Action);
@@ -75,7 +77,7 @@ export default (((...[_Option = {}]: Parameters<Type>) => {
 			},
 		},
 	};
-}) satisfies Type as Type);
+}) satisfies Type as Type;
 
 import type Type from "../Interface/Integration.js";
 

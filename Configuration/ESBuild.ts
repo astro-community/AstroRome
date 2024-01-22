@@ -1,5 +1,3 @@
-import type { BuildOptions } from "esbuild";
-
 export default ({
 	color: true,
 	format: "esm",
@@ -46,3 +44,5 @@ export default ({
 		}'`,
 	},
 } satisfies BuildOptions as BuildOptions);
+
+import type { BuildOptions } from "esbuild";
