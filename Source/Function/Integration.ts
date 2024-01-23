@@ -9,12 +9,12 @@ export default ((...[_Option = {}]: Parameters<Type>) => {
 				Value === true
 					? Default[Key as keyof typeof Default]
 					: _Option[Key as keyof typeof _Option],
-		})
+		}),
 	);
 
 	const { Path, Cache, Logger, Exclude, Action, Rome } = Merge(
 		Default,
-		_Option
+		_Option,
 	);
 
 	const Paths = new Set<Path>();
@@ -46,8 +46,8 @@ export default ((...[_Option = {}]: Parameters<Type>) => {
 					Wrote: async (On) => {
 						try {
 							return _Rome.formatContent(On.Buffer.toString(), {
-								filePath: (await import("path")).resolve(
-									On.Input
+								filePath: (await import("node:path")).resolve(
+									On.Input,
 								),
 							}).content;
 						} catch (_Error) {
@@ -70,10 +70,9 @@ export default ((...[_Option = {}]: Parameters<Type>) => {
 					await (
 						await (
 							await (
-								await new (await import("files-pipe")).default(
-									Cache,
-									Logger
-								).In(Path)
+								await new (
+									await import("files-pipe")
+								).default(Cache, Logger).In(Path)
 							).By("**/*.{js,mjs,cjs,ts}")
 						).Not(Exclude)
 					).Pipe(_Action);
