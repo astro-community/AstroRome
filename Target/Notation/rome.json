@@ -6,7 +6,6 @@
 	"formatter": {
 		"enabled": true,
 		"formatWithErrors": false,
-		"indentSize": 4,
 		"indentStyle": "tab",
 		"lineWidth": 80
 	},
@@ -50,10 +49,7 @@
 				"recommended": true
 			},
 			"nursery": {
-				"noBannedTypes": "error",
-				"recommended": true,
-				"useCamelCase": "error",
-				"useExhaustiveDependencies": "error"
+				"recommended": true
 			},
 			"recommended": true,
 			"security": {
