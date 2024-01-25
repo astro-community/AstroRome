@@ -15,7 +15,7 @@ export default {
 				onStart(async () => {
 					try {
 						outdir
-							? await (await import("node:fs/promises")).rm(
+							? await (await import("fs/promises")).rm(
 									outdir,
 									{
 										recursive: true,

@@ -46,7 +46,7 @@ export default ((...[_Option = {}]: Parameters<Type>) => {
 					Wrote: async (On) => {
 						try {
 							return _Rome.formatContent(On.Buffer.toString(), {
-								filePath: (await import("node:path")).resolve(
+								filePath: (await import("path")).resolve(
 									On.Input,
 								),
 							}).content;
