@@ -95,7 +95,7 @@ export default {
 > If you provide a `rome.json` config file the utility will pick it up
 > automatically.
 
-> **Warning**
+> [!WARNING]  
 >
 > The configuration options from the `astro.config.ts` file will override the
 > `rome.json` config.
