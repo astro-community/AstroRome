@@ -60,9 +60,7 @@ Then, apply this integration to your `astro.config.*` file using the
 **`astro.config.ts`**
 
 ```ts
-import Rome from "astro-rome";
-
-export default { integrations: [Rome()] };
+export default { integrations: [(await import("astro-rome")).default()] };
 ```
 
 ## Getting started
@@ -79,11 +77,9 @@ or disable them entirely:
 **`astro.config.ts`**
 
 ```ts
-import Rome from "astro-rome";
-
 export default {
 	integrations: [
-		Rome({
+		(await import("astro-rome")).default({
 			Rome: false,
 		}),
 	],
@@ -95,53 +91,52 @@ export default {
 > If you provide a `rome.json` config file the utility will pick it up
 > automatically.
 
-> [!WARNING]  
+> [!WARNING]
 >
 > The configuration options from the `astro.config.ts` file will override the
 > `rome.json` config.
 
-#### You can add multiple paths to validate / format by specifying an array as the `Path` variable.
+### Adding Multiple Paths
+
+You can add multiple paths to validate / format by specifying an array as the
+`Path` variable:
 
 **`astro.config.ts`**
 
 ```ts
-import Rome from "astro-rome";
-
 export default {
 	integrations: [
-		Rome({
+		(await import("astro-rome")).default({
 			Path: ["./Target", "./Build"],
 		}),
 	],
 };
 ```
 
-#### You can also provide a map of paths for different input output directories.
+### Input-Output Mapping
+
+You can also provide a map of paths for different input output directories:
 
 **`astro.config.ts`**
 
 ```ts
-import Rome from "astro-rome";
-
 export default {
 	integrations: [
-		Rome({
+		(await import("astro-rome")).default({
 			Path: new Map([["./Source", "./Target"]]),
 		}),
 	],
 };
 ```
 
-#### Or an array of the two.
+Or an array of the two:
 
 **`astro.config.ts`**
 
 ```ts
-import Rome from "astro-rome";
-
 export default {
 	integrations: [
-		Rome({
+		(await import("astro-rome")).default({
 			Path: [
 				// Format Target
 				"./Target",
@@ -153,16 +148,18 @@ export default {
 };
 ```
 
-#### You can provide a filter to exclude files from formatting. A filter can be an array of regexes or a single match. You can use functions, as well to match on file names.
+### File Filtering
+
+You can provide a filter to exclude files from formatting. A filter can be an
+array of regexes or a single match. You can use functions, as well to match on
+file names.
 
 **`astro.config.ts`**
 
 ```ts
-import Rome from "astro-rome";
-
 export default {
 	integrations: [
-		Rome({
+		(await import("astro-rome")).default({
 			Exclude: [
 				"Firebase.ts",
 				(File: string) => File === "./Source/Library/File.ts",
@@ -172,16 +169,16 @@ export default {
 };
 ```
 
-#### Set `Logger` to `0` if you do not want to see debug messages. Default is `2`.
+### Controlling Logging
+
+Set `Logger` to `0` if you do not want to see debug messages. Default is `2`.
 
 **`astro.config.ts`**
 
 ```ts
-import Rome from "astro-rome";
-
 export default {
 	integrations: [
-		Rome({
+		(await import("astro-rome")).default({
 			Logger: 0,
 		}),
 	],
