@@ -2,7 +2,7 @@
 	"name": "astro-rome",
 	"version": "2.1.1",
 	"private": false,
-	"description": "AstroJS Rome tools. 🏛️ Format, lint and check your Astro website with Rome.",
+	"description": "🏛️ AstroJS Rome tools. Format, lint and check your Astro website with Rome.",
 	"keywords": [
 		"astro-integration",
 		"astro-component",
