@@ -13,13 +13,13 @@
 		"performance",
 		"withastro"
 	],
-	"homepage": "https://github.com/astro-community/AstroRome#readme",
+	"homepage": "https://github.com/Playform/AstroRome#readme",
 	"bugs": {
-		"url": "https://github.com/astro-community/AstroRome/issues"
+		"url": "https://github.com/Playform/AstroRome/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/astro-community/AstroRome.git"
+		"url": "git+https://github.com/Playform/AstroRome.git"
 	},
 	"license": "SEE LICENSE IN LICENSE",
 	"author": {
