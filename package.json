@@ -31,6 +31,7 @@
 	"main": "./Target/Function/Integration.js",
 	"types": "./Target/Function/Integration.d.ts",
 	"scripts": {
+		"Document": "TypeScriptDocument 'Source/**/*.ts'",
 		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts' -ES Configuration/ESBuild.ts"
 	},
 	"dependencies": {
@@ -44,7 +45,8 @@
 	},
 	"devDependencies": {
 		"astro": "4.5.6",
-		"esbuild-plugin-copy": "2.1.1"
+		"esbuild-plugin-copy": "2.1.1",
+		"typescript-document": "0.0.2"
 	},
 	"publishConfig": {
 		"access": "public"
