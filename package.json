@@ -2,7 +2,7 @@
 	"name": "astro-rome",
 	"version": "2.1.4",
 	"private": false,
-	"description": "🏛️ AstroJS Rome tools.",
+	"description": "🏛️ Rome Format.",
 	"keywords": [
 		"astro-integration",
 		"astro-component",
