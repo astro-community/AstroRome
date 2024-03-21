@@ -10,13 +10,13 @@ export default (
 		Failed: async ({ Input }) => `Error: Cannot format file ${Input}!`,
 		Accomplished: async ({ Input, Output }) =>
 			`Formatted ${Input} in ${Output}.`,
-		Fulfilled: async ({ Files }) =>
-			Files > 0
-				? `Successfully formatted a total of ${Files} JavaScript and TypeScript ${
-						Files === 1 ? "file" : "files"
+		Fulfilled: async ({ File }) =>
+			File > 0
+				? `Successfully formatted a total of ${File} JavaScript and TypeScript ${
+						File === 1 ? "file" : "files"
 				  }.`
 				: false,
 	},
 } satisfies Type);
 
-import type Type from "files-pipe/Target/Interface/Option";
+import type Type from "../Interface/Option.js";
