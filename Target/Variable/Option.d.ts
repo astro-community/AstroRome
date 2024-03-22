@@ -4,7 +4,7 @@
  */
 declare const _default: Omit<{} & {
     File: string;
-    Rome: Type;
+    Rome: any;
     Cache: {
         Search: string;
         Folder: string;

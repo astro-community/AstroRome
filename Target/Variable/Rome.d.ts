@@ -2,5 +2,5 @@
  * @module Rome
  *
  */
-declare const _default: Type;
+declare const _default: any;
 export default _default;

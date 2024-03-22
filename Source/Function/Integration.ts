@@ -89,6 +89,4 @@ import type Path from "files-pipe/Target/Type/Path.js";
 
 export const { default: Default } = await import("../Variable/Option.js");
 
-export const { default: Merge } = await import(
-	"typescript-esbuild/Target/Function/Merge.js"
-);
+export const { default: Merge } = await import("../Function/Merge.js");

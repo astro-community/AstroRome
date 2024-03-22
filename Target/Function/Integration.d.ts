@@ -7,7 +7,7 @@ export default _default;
 import type Type from "../Interface/Integration.js";
 export declare const Default: Omit<{} & {
     File: string;
-    Rome: Type;
+    Rome: any;
     Cache: {
         Search: string;
         Folder: string;
@@ -25,4 +25,4 @@ export declare const Default: Omit<{} & {
     }, "__proto__">;
     Exclude: false;
 }, "__proto__">;
-export declare const Merge: import("typescript-esbuild/Target/Interface/Merge.js").default<import("typescript-esbuild/Target/Interface/Merge.js").Generic>;
+export declare const Merge: import("@Interface/Merge.js").default<import("@Interface/Merge.js").Generic>;
